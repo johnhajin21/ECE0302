@@ -1,0 +1,5 @@
+/home/johnhajin21/assignments/project1/CMakeFiles/rebuild_cache.dir
+/home/johnhajin21/assignments/project1/CMakeFiles/edit_cache.dir
+/home/johnhajin21/assignments/project1/CMakeFiles/test.dir
+/home/johnhajin21/assignments/project1/CMakeFiles/submission.dir
+/home/johnhajin21/assignments/project1/CMakeFiles/bitset-tests.dir
