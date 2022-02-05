@@ -1,0 +1,5 @@
+/home/johnhajin21/ECE0302/assignments/homeworks/CMakeFiles/rebuild_cache.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/CMakeFiles/edit_cache.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/CMakeFiles/test.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/CMakeFiles/submission.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/CMakeFiles/bag-tests.dir
