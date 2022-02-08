@@ -2,6 +2,7 @@
 #define _DYNAMIC_BAG_HPP_
 
 #include "abstract_bag.hpp"
+in
 template <typename T>
 class DynamicBag: public AbstractBag<T>
 {

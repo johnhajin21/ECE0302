@@ -25,6 +25,7 @@ TEST_CASE("Test Construction/Destruction", "[DynamicBag]"){
   REQUIRE(b.isEmpty());
 }
 
+
 TEST_CASE("Test add", "[Bag]"){
 
   DynamicBag<int> b;
