@@ -56,7 +56,7 @@ TEST_CASE( "Test FindPalindrome add a non-allowable word", "[FindPalindrome]" )
 	REQUIRE(d.add(test4));
 	
 }
-/*
+
 TEST_CASE( "Cut Test 1", "[FindPalindrome]" )
 {
 	FindPalindrome test;
@@ -86,7 +86,8 @@ TEST_CASE( "Cut Test 1", "[FindPalindrome]" )
 	
 }
 
-*/
+
+
 
 TEST_CASE( "Cut Test 2", "[FindPalindrome]" )
 {

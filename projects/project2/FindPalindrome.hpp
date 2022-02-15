@@ -12,6 +12,7 @@ private:
 
 	std::vector<std::vector<std::string>> knownPalindromes; //Palindrome combinations
 	std::vector<std::string> words; //Holds all the strings
+	int total;
 
 	// ...
 	
