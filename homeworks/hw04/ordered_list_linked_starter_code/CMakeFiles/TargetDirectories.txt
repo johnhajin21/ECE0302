@@ -1,0 +1,5 @@
+/home/johnhajin21/ECE0302/assignments/homeworks/hw04/ordered_list_linked_starter_code/CMakeFiles/rebuild_cache.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/hw04/ordered_list_linked_starter_code/CMakeFiles/edit_cache.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/hw04/ordered_list_linked_starter_code/CMakeFiles/test.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/hw04/ordered_list_linked_starter_code/CMakeFiles/submission.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/hw04/ordered_list_linked_starter_code/CMakeFiles/test_linked_list.dir
