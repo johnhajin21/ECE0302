@@ -19,8 +19,6 @@ DynamicBag<T>::DynamicBag(const DynamicBag& x)
       newData[i] = x.getItem(i);
     }
         
-    
-
     delete []data; //Deleting the array
     data = newData; //Making the new array the default array
 }
