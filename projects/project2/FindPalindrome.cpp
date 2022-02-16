@@ -35,7 +35,7 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 if( currentStringVector.size() == 0){
 
 	string addIt;
-	for(long unsigned int i = 0; i<candidateStringVector.size();i++)
+	for(int i = 0; i<candidateStringVector.size();i++)
 	{
 		addIt = addIt + candidateStringVector[i];
 	}
@@ -176,29 +176,91 @@ bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 
 }
 
+
+//This function tests to see if the letter is also in the other bigger half
 bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
                               const vector<string> & stringVector2)
 {
-	string megaString1,megaString2; //Holde the strings
+	string megaString1,megaString2; //Hold the strings
 
-	for(long unsigned int i=0; i<stringVector1.size();i++)
+	string validCharacters = "abcdefghijklmnopqrstuvwxyz"; //String that holds all valid characters
+	string smaller,bigger; //Holds which ever is bigger
+
+	//Making the strings
+
+	for(int i=0; i<stringVector1.size();i++)
 	{
 		megaString1 += stringVector1[i];
 	}
 
-	for(long unsigned int i=0; i<stringVector2.size();i++)
+	for(int i=0; i<stringVector2.size();i++)
 	{
 		megaString2 += stringVector2[i];
 	}
 
-	for(long unsigned int i=0; i<megaString1.length();i++){
 
-		if(megaString1[i] != megaString2[megaString2.length()-1-i])
+	//Setting the smaller and bigger strings
+	if(megaString1.length()<=megaString2.length())
+	{
+		smaller = megaString1;
+	}
+
+	else
+	{
+		bigger = megaString2;
+	}
+
+	//Converting to lowercase
+	convertToLowerCase(smaller);
+	convertToLowerCase(bigger);
+	
+	//Checking to see what variables are in the smaller string
+	bool charSmallExists[26];
+
+	for(int i=0;i<26;i++)
+	{
+		charSmallExists[i] == false;
+	}
+	
+	for(int i=0;i<smaller.length();i++)
+	{
+		for(int j=0;j<26;j++)
+		{
+			if(smaller[i] == validCharacters[j])
+			{
+				charSmallExists[j] == true;
+				break;
+			}
+		}
+	}
+
+	bool charBigExists;
+
+	for(int i=0;i<26;i++)
+	{
+		charBigExists == false;
+
+		for(int j=0;j<bigger.length();j++)
+		{
+			if(charSmallExists[i] == false)
+			{
+				charBigExists == true;
+				break;
+			}
+
+			else if((charSmallExists[i] == true) && (bigger[j] = validCharacters[i]))
+			{
+				charBigExists == true;
+				break;
+			}
+		}
+
+		if(charBigExists == false)
 		{
 			return false;
 		}
-
 	}
+
 	return true;
 }
 

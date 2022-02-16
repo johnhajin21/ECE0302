@@ -103,30 +103,5 @@ TEST_CASE( "Cut Test 2", "[FindPalindrome]" )
 	b.push_back("cba");
 
 	REQUIRE(test.cutTest2(a,b));
-
-
-	std::vector<std::string> c;
-	c.push_back("abc");
-	c.push_back("def");
-	c.push_back("ghi");
-
-	std::vector<std::string> d;
-	d.push_back("hdkhihg");
-	d.push_back("fed");
-	d.push_back("cba");
-
-	REQUIRE(test.cutTest2(c,d));
-
-	std::vector<std::string> e;
-	e.push_back("abc");
-	e.push_back("dff");
-	e.push_back("ghi");
-
-	std::vector<std::string> f;
-	f.push_back("ihg");
-	f.push_back("fed");
-	f.push_back("cba");
-
-	REQUIRE(!test.cutTest2(e,f));
 	
 }
