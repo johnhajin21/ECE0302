@@ -105,6 +105,10 @@ public:
 	@return  A vector containing all the items in the linked list in order. */
 	std::vector< std::vector<std::string> > toVector() const;
 
+	int wordVectorSize()
+	{
+		return words.size();
+	}
 };
 
 #endif
