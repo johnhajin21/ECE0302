@@ -27,7 +27,10 @@ static void convertToLowerCase(string & value)
 void FindPalindrome::recursiveFindPalindromes(vector<string>
         candidateStringVector, vector<string> currentStringVector)
 {
-	
+if(!cutTest2(candidateStringVector,currentStringVector))
+		{
+			return;
+		}	
 	
 //////////
 
@@ -44,37 +47,23 @@ if( currentStringVector.size() == 0){
 	if(isPalindrome(addIt))
 	{
 		knownPalindromes.push_back(candidateStringVector);	//Adding it to the known palindromes vector
+		return;
 	}
 
 }
-
-else{
-	int size = currentStringVector.size(); //Size of current string vector
-	for(int i=0;i<size;i++)
+	 //Size of current string vector
+	for(int i=0;i<currentStringVector.size();i++)
 	{
-		if(i!=0)
-		{
-			string temp = candidateStringVector.back(); //Store element from the candidate vector
-			candidateStringVector.pop_back(); //Remove the element from the candidate vector
-			currentStringVector.insert(currentStringVector.begin(),temp); //Insert the element to the beginning of current vector
+		
+			
 			candidateStringVector.push_back(currentStringVector[i]); //Take the new word from current and put into candidate vector
 			currentStringVector.erase(currentStringVector.begin()+i); //Remove the word your just placed into candidate, from current
-		}
-		
-		else
-		{
-			candidateStringVector.push_back(currentStringVector[0]); //Add first string from the candidate vector
-			currentStringVector.erase(currentStringVector.begin()); //Erase that string from the current vector
-		}
-		
-		// TEST CUTTEST2
-		//If cuttest2 works call the recurve function
-		if(cutTest2(candidateStringVector,currentStringVector))
-		{
 			recursiveFindPalindromes(candidateStringVector,currentStringVector);
-		}
+			currentStringVector.insert(currentStringVector.begin()+i,candidateStringVector.back()); //Insert the element to the beginning of current vector
+			candidateStringVector.pop_back(); //Remove the element from the candidate vector
+		
 	}
-}
+
 	
 }
 
@@ -182,10 +171,10 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
                               const vector<string> & stringVector2)
 {
 	string megaString1,megaString2; //Hold the strings
-
-	string validCharacters = "abcdefghijklmnopqrstuvwxyz"; //String that holds all valid characters
 	string smaller,bigger; //Holds which ever is bigger
 
+	megaString1 = "";
+	megaString2 = "";
 	//Making the strings
 
 	for(int i=0; i<stringVector1.size();i++)
@@ -200,66 +189,32 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
 
 
 	//Setting the smaller and bigger strings
-	if(megaString1.length()<=megaString2.length())
-	{
-		smaller = megaString1;
-	}
-
-	else
-	{
-		bigger = megaString2;
-	}
-
+	smaller = megaString1.length() <= megaString2.length() ? megaString1: megaString2;
+	bigger = smaller == megaString1 ? megaString2 : megaString1;
 	//Converting to lowercase
 	convertToLowerCase(smaller);
 	convertToLowerCase(bigger);
-	
-	//Checking to see what variables are in the smaller string
-	bool charSmallExists[26];
 
-	for(int i=0;i<26;i++)
-	{
-		charSmallExists[i] == false;
-	}
+	//Checking to see what variables are in the smaller string
 	
+	int freq = 0;
 	for(int i=0;i<smaller.length();i++)
 	{
-		for(int j=0;j<26;j++)
-		{
-			if(smaller[i] == validCharacters[j])
-			{
-				charSmallExists[j] == true;
-				break;
-			}
-		}
-	}
-
-	bool charBigExists;
-
-	for(int i=0;i<26;i++)
-	{
-		charBigExists == false;
-
+		freq = 0;
 		for(int j=0;j<bigger.length();j++)
 		{
-			if(charSmallExists[i] == false)
+			if(smaller[i] == bigger[j])
 			{
-				charBigExists == true;
-				break;
-			}
-
-			else if((charSmallExists[i] == true) && (bigger[j] = validCharacters[i]))
-			{
-				charBigExists == true;
-				break;
+				freq++;	
 			}
 		}
-
-		if(charBigExists == false)
+		if(freq == 0)
 		{
 			return false;
 		}
 	}
+
+	
 
 	return true;
 }
@@ -317,6 +272,7 @@ bool FindPalindrome::add(const string & value)
 	//If cuttest one is true run known palidromes
 	if(cutTest1(words) == true)
 	{
+		knownPalindromes.clear();
 		recursiveFindPalindromes(temp,words); 
 
 	}
@@ -330,98 +286,100 @@ bool FindPalindrome::add(const string & value)
 bool FindPalindrome::add(const vector<string> & stringVector)
 {
 	// TODO need to implement this...
-	string tester; //Creating test variable for input
+	string tester; //Hold each word in stringVector
 	string tester2; // Creating second test variable
+	string holder; //Hold each word
 	
-	bool valid[stringVector.size()]; //To hold if string is valid or nah
-	string validCharacters = "abcdefghijklmnopqrstuvwxyz"; //String that holds all valid characters
-	
-	for(long unsigned int h=0;h<stringVector.size();h++)
-	{
-		tester = stringVector[h]; 
-		convertToLowerCase(tester); //Converting the value to lowercase
 
-		//Error checking to see that there are no invalid characters
-		for(long unsigned int i=0;i<stringVector[h].length();i++)
+	string validCharacters = "abcdefghijklmnopqrstuvwxyz"; //String that holds all valid characters
+//Checking to see if valid
+	for(int i=0;i<stringVector.size();i++)
+	{
+		
+		tester = stringVector[i]; //Making tester a string from the vector
+		convertToLowerCase(tester); //Converting it to lowercase
+
+		bool charsValid[tester.length()];
+		for(int j=0;j<tester.length();j++)
 		{
-			valid[i] = false;
-			for(long unsigned int j=0;j<validCharacters.length();j++)
+			charsValid[j] = false;
+		}
+
+
+		//Checking to see if the string has only valid characters
+		for(int j=0;j<tester.length();j++)
+		{
+			
+			for(int k=0;k<validCharacters.length();k++)
 			{
-				if(tester[i] == validCharacters[j])
+				if(tester[j] == validCharacters[k])
 				{
-					valid[i] = true;
+					charsValid[j] = true;
 				}
 			}
-		}
-
-		//Checking all the values of the valid array to determine if its valid
-		for(long unsigned int i=0;i<stringVector[h].length();i++)
-		{
-			if(valid[i] == false)
+			
+			if(charsValid[j] == false)
 			{
-				return false; //Returning that the string cannot be added
+				return false;
 			}
+			
 		}
-
-
-		//Error checking to see if it already exsists in the vector
-		for(long unsigned int i=0;i<words.size();i++)
+		
+		//Checking to see if the string isnt already in the words vector
+		for(int j=0;j<words.size();j++)
 		{
-			tester2 = words[i]; //Setting the second test variable
-			convertToLowerCase(tester2); //Converting it to lowercase;
-
+			tester2 = words[j];
+			convertToLowerCase(tester2);
 			if(tester.compare(tester2) == 0)
 			{
-				return false; //Returning false because word is already in the vector
+				return false;
 			}
 		}
-
-		//Error checking to see if input vector has 2 of the same 
-		for(long unsigned int i=0;i<stringVector.size();i++)
+		
+		//Checking to see if there is a duplicate of the same string in the input vector
+		for(int j=0;j<stringVector.size();j++)
 		{
-			tester = stringVector[i];
-			convertToLowerCase(tester);
-			for(long unsigned int j=0;j<stringVector.size();j++)
+			if(i == j)
 			{
-				if(i == j)
-				{
-					j++;
-				}
-				
-				tester2 = stringVector[j];
-				convertToLowerCase(tester2);
-				
+				j++;
+			}
 
-				if(tester.compare(tester2) == 0)
-				{
-					return false;
-				}
+			if(j == stringVector.size())
+			{
+				break;
+			}
 
+			tester2 = stringVector[j];
+			convertToLowerCase(tester2);
+			if(tester.compare(tester2) == 0)
+			{
+				return false;
 			}
 		}
 		
 
-		
 	}
 
+///////////////////////////
 
-	for(long unsigned int i=0;i<stringVector.size();i++)
+	for(int i=0;i<stringVector.size();i++)
 	{
 		words.push_back(stringVector[i]); //Adding the input to the vector
 	}
 
 	vector<string> temp;
 	//clear the solution vector
-	knownPalindromes.clear();
+	
 	//If cuttest one is true run known palidromes
 	if(cutTest1(words) == true)
 	{
+		knownPalindromes.clear();
 		recursiveFindPalindromes(temp,words); 
 
 	}
 
 	return true; //Returning true because it succeeded
-	
+
 }
 
 vector< vector<string> > FindPalindrome::toVector() const

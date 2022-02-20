@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/johnhajin21/ECE0302/assignments/projects/project2/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g   -std=gnu++11 -o CMakeFiles/FindPalindrome-main.dir/FindPalindrome_main.cpp.o -c /home/johnhajin21/ECE0302/assignments/projects/project2/FindPalindrome_main.cpp",
+  "file": "/home/johnhajin21/ECE0302/assignments/projects/project2/FindPalindrome_main.cpp"
+},
+{
+  "directory": "/home/johnhajin21/ECE0302/assignments/projects/project2/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g   -std=gnu++11 -o CMakeFiles/FindPalindrome-main.dir/FindPalindrome.cpp.o -c /home/johnhajin21/ECE0302/assignments/projects/project2/FindPalindrome.cpp",
+  "file": "/home/johnhajin21/ECE0302/assignments/projects/project2/FindPalindrome.cpp"
+},
+{
+  "directory": "/home/johnhajin21/ECE0302/assignments/projects/project2/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g   -std=gnu++11 -o CMakeFiles/FindPalindrome-tests.dir/FindPalindrome.cpp.o -c /home/johnhajin21/ECE0302/assignments/projects/project2/FindPalindrome.cpp",
+  "file": "/home/johnhajin21/ECE0302/assignments/projects/project2/FindPalindrome.cpp"
+},
+{
+  "directory": "/home/johnhajin21/ECE0302/assignments/projects/project2/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g   -std=gnu++11 -o CMakeFiles/FindPalindrome-tests.dir/FindPalindrome_test.cpp.o -c /home/johnhajin21/ECE0302/assignments/projects/project2/FindPalindrome_test.cpp",
+  "file": "/home/johnhajin21/ECE0302/assignments/projects/project2/FindPalindrome_test.cpp"
+}
+]

@@ -12,8 +12,6 @@ private:
 
 	std::vector<std::vector<std::string>> knownPalindromes; //Palindrome combinations
 	std::vector<std::string> words; //Holds all the strings
-	int total;
-
 	// ...
 	
 	// private stuff that you are given or is specified in the project
@@ -105,10 +103,7 @@ public:
 	@return  A vector containing all the items in the linked list in order. */
 	std::vector< std::vector<std::string> > toVector() const;
 
-	int wordVectorSize()
-	{
-		return words.size();
-	}
+	
 };
 
 #endif

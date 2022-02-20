@@ -1,0 +1,6 @@
+/home/johnhajin21/ECE0302/assignments/projects/project2/build/CMakeFiles/rebuild_cache.dir
+/home/johnhajin21/ECE0302/assignments/projects/project2/build/CMakeFiles/submission.dir
+/home/johnhajin21/ECE0302/assignments/projects/project2/build/CMakeFiles/edit_cache.dir
+/home/johnhajin21/ECE0302/assignments/projects/project2/build/CMakeFiles/test.dir
+/home/johnhajin21/ECE0302/assignments/projects/project2/build/CMakeFiles/FindPalindrome-main.dir
+/home/johnhajin21/ECE0302/assignments/projects/project2/build/CMakeFiles/FindPalindrome-tests.dir

@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
+	
 	FindPalindrome f;
 	string newString("a");
 	cout << "\n******* Project 1 Main *********\n\n";
@@ -29,6 +30,8 @@ int main()
 	cout << endl;
 	cout << "\n******* Project 1 Main *********\n\n";
 	
+
+
 	return 0;
 }
 
