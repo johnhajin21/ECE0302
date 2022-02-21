@@ -1,0 +1,5 @@
+/home/johnhajin21/ECE0302/assignments/homeworks/hw05/CMakeFiles/rebuild_cache.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/hw05/CMakeFiles/edit_cache.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/hw05/CMakeFiles/test.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/hw05/CMakeFiles/submission.dir
+/home/johnhajin21/ECE0302/assignments/homeworks/hw05/CMakeFiles/postpre.dir
