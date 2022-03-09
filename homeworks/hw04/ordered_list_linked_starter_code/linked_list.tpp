@@ -82,6 +82,7 @@ bool LinkedList<T>::insert(std::size_t position, const T& item)
   else if(sizeOfLinkedList == 0)
   {
     Node<T>* newNode = new Node<T>();
+    newNode = nullptr;
     newNode->setItem(item);
     head = newNode;
     sizeOfLinkedList++; //Increase the size of the linked list
