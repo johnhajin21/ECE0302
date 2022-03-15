@@ -7,7 +7,7 @@
 using namespace std;
 
 // TODO Implement tests of your Stack class and XMLParser class here
-
+/*
 TEST_CASE( "Test Bag add", "[XMLParser]" )
 {
 	   INFO("Hint: testing Bag add()");
@@ -24,7 +24,7 @@ TEST_CASE( "Test Bag add", "[XMLParser]" )
 			REQUIRE(success);
 		}
 }
-
+*/
 TEST_CASE( "Test Stack push", "[XMLParser]" )
 {
 	   INFO("Hint: testing Stack push()");
@@ -41,6 +41,7 @@ TEST_CASE( "Test Stack push", "[XMLParser]" )
 			REQUIRE(success);
 		}
 }
+
 
 TEST_CASE( "Test XMLParser tokenizeInputString", "[XMLParser]" )
 {
