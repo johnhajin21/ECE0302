@@ -4,6 +4,7 @@
 #include <string>
 #include "XMLParser.hpp"
 #include "Bag.hpp"
+#include "Stack.hpp"
 
 using namespace std;
 
@@ -55,8 +56,7 @@ int main () {
 	cout << endl << "contains 'note' element this many times = " << number << endl << endl;
 
 
-Bag<string> elementNameBag;
-elementNameBag.add("hello");
+
 
 	return 0;
 }
