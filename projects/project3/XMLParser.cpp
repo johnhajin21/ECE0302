@@ -44,7 +44,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 
 						if(inputString[j] == '<'){
 							clear(); //Clearing all of the data
-							return false; //Returns false because there are two '>' in a row
+							return false; //Returns false because there are two '<' in a row
 						}
 					}
 		
@@ -72,14 +72,10 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 
 				//Reading in the rest of it
 				while(inputString[i]!= '>'){
-					if(inputString[i] == ' ')
-					{
-						break; //This break is to just get the token name and not the other stuff
-					}
 					temporaryString.push_back(inputString[i]);
 
 					//Error Checking to see if valid or snah
-					if(inputString[i] == '!' || inputString[i] == '\"' || inputString[i] == '#' || inputString[i] == '%' || inputString[i] == '&' || inputString[i] == '\'' || inputString[i] == '(' || inputString[i] == ')' || inputString[i] == '*' || inputString[i] == '+' || inputString[i] == ',' || inputString[i] == '/' || inputString[i] == ';' || inputString[i] == '<' || inputString[i] == '=' || inputString[i] == '\?' || inputString[i] == '@' || inputString[i] == '[' || inputString[i] == '\\' || inputString[i] == ']' || inputString[i] == '^' || inputString[i] == '`' || inputString[i] == '{' || inputString[i] == '|' || inputString[i] == '}' || inputString[i] == '~' || inputString[i] == '.'){
+					if(inputString[i] == '!' || inputString[i] == '\"' || inputString[i] == '#' || inputString[i] == '%' || inputString[i] == '&' || inputString[i] == '\'' || inputString[i] == '(' || inputString[i] == ')' || inputString[i] == '*' || inputString[i] == '+' || inputString[i] == ',' || inputString[i] == '/' || inputString[i] == ';' || inputString[i] == '<' || inputString[i] == '=' || inputString[i] == '\?' || inputString[i] == '@' || inputString[i] == '[' || inputString[i] == '\\' || inputString[i] == ']' || inputString[i] == '^' || inputString[i] == '`' || inputString[i] == '{' || inputString[i] == '|' || inputString[i] == '}' || inputString[i] == '~' ||  inputString[i] == '&' || inputString[i] == '$' || inputString[i] == ' '){
 
 						clear(); //Clearing all the data
 						return false; //Return false because a tag was not valid
@@ -88,10 +84,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 					i++;//Increasing i to test the next element				
 					}
 
-				while(inputString[i] != '>')
-				{
-					i++; //Increasing until it gets to the end of it
-				}
+				
 				//After the above while loop runs its should end at '>'
 
 
@@ -152,7 +145,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 					temporaryString.push_back(inputString[i]);
 
 					//Error Checking to see if valid or snah
-					if(inputString[i] == '!' || inputString[i] == '\"' || inputString[i] == '#' || inputString[i] == '%' || inputString[i] == '&' || inputString[i] == '\'' || inputString[i] == '(' || inputString[i] == ')' || inputString[i] == '*' || inputString[i] == '+' || inputString[i] == ',' || inputString[i] == ';' || inputString[i] == '<' || inputString[i] == '=' || inputString[i] == '\?' || inputString[i] == '@' || inputString[i] == '[' || inputString[i] == '\\' || inputString[i] == ']' || inputString[i] == '^' || inputString[i] == '`' || inputString[i] == '{' || inputString[i] == '|' || inputString[i] == '}' || inputString[i] == '~' || inputString[i] == '.'){
+					if(inputString[i] == '!' || inputString[i] == '\"' || inputString[i] == '#' || inputString[i] == '%' || inputString[i] == '&' || inputString[i] == '\'' || inputString[i] == '(' || inputString[i] == ')' || inputString[i] == '*' || inputString[i] == '+' || inputString[i] == ',' || inputString[i] == ';' || inputString[i] == '<' || inputString[i] == '=' || inputString[i] == '\?' || inputString[i] == '@' || inputString[i] == '[' || inputString[i] == '\\' || inputString[i] == ']' || inputString[i] == '^' || inputString[i] == '`' || inputString[i] == '{' || inputString[i] == '|' || inputString[i] == '}' || inputString[i] == '~' || inputString[i] == '$'){
 
 						clear(); //Clearing all the data
 						return false; //Return false because a tag was not valid
@@ -182,7 +175,8 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 				//In the case that it is a EMPTY_TAG
 				else if(inputString[i] == '/'){
 					//Must first error check
-					if(inputString[i] != ' ' && inputString[i] == '>'){
+					i++;
+					if(inputString[i] != ' ' && inputString[i] != '>'){
 						clear(); //Clearing all the data
 						return false; //Return false because a tag was not valid
 					}
@@ -199,6 +193,8 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 			}
 			
 			
+		
+		
 		//Special case to see if there arent two ">" one after the other
 					for(int j=i+1;j<length;j++){
 						if(inputString[j] == '<'){
@@ -206,12 +202,10 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 						}
 
 						if(inputString[j] == '>'){
-							//clear(); //Clearing all of the data
+							clear(); //Clearing all of the data
 							return false; //Returns false because there are two '>' in a row
 						}
 					}
-		
-		
 		
 		}
 		
@@ -220,6 +214,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 
 		else if(inputString[i] != ' ' && inputString[i] != '\n'){
 			while(inputString[i] != '<'){
+				
 				temporaryString.push_back(inputString[i]);
 				i++;
 			}

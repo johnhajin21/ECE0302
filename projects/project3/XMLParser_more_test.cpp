@@ -7,7 +7,7 @@
 using namespace std;
 
 // TODO Implement tests of your Stack class and XMLParser class here
-/*
+
 TEST_CASE( "Test Bag add", "[XMLParser]" )
 {
 	   INFO("Hint: testing Bag add()");
@@ -24,7 +24,7 @@ TEST_CASE( "Test Bag add", "[XMLParser]" )
 			REQUIRE(success);
 		}
 }
-*/
+
 TEST_CASE( "Test Stack push", "[XMLParser]" )
 {
 	   INFO("Hint: testing Stack push()");
@@ -48,7 +48,7 @@ TEST_CASE( "Test XMLParser tokenizeInputString", "[XMLParser]" )
 	   INFO("Hint: tokenize single element test of XMLParse");
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
-		string testString = "<test>stuff</test>";
+		string testString = "<test><pain>stuff</test><p";
 		bool success;
 		success = myXMLParser.tokenizeInputString(testString);
 		REQUIRE(success);
@@ -199,4 +199,5 @@ TEST_CASE( "Test XMLParser Final Handout-0", "[XMLParser]" )
 		REQUIRE(myXMLParser.containsElementName("color_swatch"));
 		REQUIRE(myXMLParser.frequencyElementName("color_swatch") == 15);
 }
+
 

@@ -30,7 +30,8 @@ int main () {
 		return -1;
 	}
 	
-	cout << inputString;
+	inputString.pop_back();
+	cout << inputString << endl;
 
 	// try to tokenize the input string
 	success = myParser.tokenizeInputString(inputString);

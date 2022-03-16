@@ -183,7 +183,7 @@ TEST_CASE( "Test XMLParser tokenizeInputString (End Tag)", "[XMLParser]" )
 
 TEST_CASE( "Test XMLParser tokenizeInputString", "[XMLParser]" )
 {
-	   //INFO("Hint: tokenize single element test of XMLParse");
+	   INFO("Hint: tokenize single element test of XMLParse");
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
 		string testString = "<test>stuff</test>";
@@ -216,7 +216,7 @@ TEST_CASE( "Test XMLParser tokenizeInputString Handout-0", "[XMLParser]" )
 // You can assume that the beginning and the end of CONTENT will not be filled with whitespace
 TEST_CASE( "Test XMLParser tokenizeInputString Handout-1", "[XMLParser]" )
 {
-	   //INFO("Hint: tokenize multiple elements test of XMLParse");
+	   INFO("Hint: tokenize multiple elements test of XMLParse");
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
 		string testString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Note src='gmail'>  <From>Tom</From> <To>Alice</To> </Note>";
@@ -243,7 +243,7 @@ TEST_CASE( "Test XMLParser tokenizeInputString Handout-1", "[XMLParser]" )
 
 TEST_CASE( "Test XMLParser parseTokenizedInput Handout-0", "[XMLParser]" )
 {
-	   //INFO("Hint: tokenize single element test of XMLParse");
+	   INFO("Hint: tokenize single element test of XMLParse");
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
 		string testString = "<test myattr='abcdef'>stuff<this_is_empty_tag/></test>";
@@ -293,3 +293,43 @@ TEST_CASE( "Test XMLParser Final Handout-0", "[XMLParser]" )
 		REQUIRE(myXMLParser.frequencyElementName("color_swatch") == 15);
 }
 
+TEST_CASE( "Test XMLParser Final myown", "[XMLParser]" )
+{
+		// Create an instance of XMLParse
+		XMLParser myXMLParser;
+		REQUIRE(myXMLParser.tokenizeInputString("<test>stuff</test>") == true);
+		REQUIRE(myXMLParser.tokenizeInputString("<1test>stuff</1test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<-test>stuff</-test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<,test>stuff</,test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<.test>stuff</.test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<t!est>stuff</t!est>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<test>stuff</t\"est>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<t#est>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<t$est>stuff</tes$t>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<t\%est>stuff</t\%est>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes&t>stuff</te&st>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<t\'est>stuff</t\'est>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes(t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes<t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<test)>stuff</test)>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<te*st>stuff</te*st>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<t+est>stuff</t+est>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes,t>stuff</tes,t>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes/t>stuff</te/st>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes;t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes=t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes?t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes@t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes[t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes\\t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes]t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes^t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes`t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes{t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes|t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes}t>stuff</test>") == false);
+		REQUIRE(myXMLParser.tokenizeInputString("<tes~t>stuff</test>") == false);
+		
+		REQUIRE(myXMLParser.tokenizeInputString("<\?xml version=\"1.0\" encoding=\"UTF-8\"\?><note> \n <to>Tove</to> \n <from name=\"test\", joe=\"teddy\" >Jani</from>\n<heading>Reminder</heading>\n<note/>\n<body>Don't forget me this weekend!</body>\n</note>") == true);
+
+}
