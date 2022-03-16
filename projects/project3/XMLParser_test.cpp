@@ -27,7 +27,7 @@ TEST_CASE( "Test Bag add", "[XMLParser]" )
 
 TEST_CASE( "Test Stack push", "[XMLParser]" )
 {
-	   INFO("Hint: testing Stack push()");
+	  INFO("Hint: testing Stack push()");
 		// Create a Stack to hold ints
 		Stack<int> intStack;
 		int testSize = 100;
@@ -44,7 +44,7 @@ TEST_CASE( "Test Stack push", "[XMLParser]" )
 
 TEST_CASE( "Test Stack pop and size", "[XMLParser]" )
 {
-	   INFO("Hint: testing Stack pop() and size()");
+	  INFO("Hint: testing Stack pop() and size()");
 		// Create a Stack to hold ints
 		Stack<int> intStack;
 		int testSize = 100;
@@ -183,7 +183,7 @@ TEST_CASE( "Test XMLParser tokenizeInputString (End Tag)", "[XMLParser]" )
 
 TEST_CASE( "Test XMLParser tokenizeInputString", "[XMLParser]" )
 {
-	   INFO("Hint: tokenize single element test of XMLParse");
+	 INFO("Hint: tokenize single element test of XMLParse");
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
 		string testString = "<test>stuff</test>";
@@ -195,7 +195,7 @@ TEST_CASE( "Test XMLParser tokenizeInputString", "[XMLParser]" )
 // You can assume that the beginning and the end of CONTENT will not be filled with whitespace
 TEST_CASE( "Test XMLParser tokenizeInputString Handout-0", "[XMLParser]" )
 {
-	   INFO("Hint: tokenize single element test of XMLParse");
+	  INFO("Hint: tokenize single element test of XMLParse");
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
 		string testString = "<test>stuff</test>";
@@ -243,7 +243,7 @@ TEST_CASE( "Test XMLParser tokenizeInputString Handout-1", "[XMLParser]" )
 
 TEST_CASE( "Test XMLParser parseTokenizedInput Handout-0", "[XMLParser]" )
 {
-	   INFO("Hint: tokenize single element test of XMLParse");
+	  INFO("Hint: tokenize single element test of XMLParse");
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
 		string testString = "<test myattr='abcdef'>stuff<this_is_empty_tag/></test>";
@@ -268,7 +268,7 @@ TEST_CASE( "Test XMLParser parseTokenizedInput Handout-0", "[XMLParser]" )
 
 TEST_CASE( "Test XMLParser Final Handout-0", "[XMLParser]" )
 {
-	   INFO("Hint: Product");
+	  INFO("Hint: Product");
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
 		ifstream myfile ("./TestFile.txt");

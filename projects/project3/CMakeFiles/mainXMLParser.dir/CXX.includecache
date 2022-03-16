@@ -64,3 +64,17 @@ Bag.hpp
 Stack.hpp
 /home/johnhajin21/ECE0302/assignments/projects/project3/Stack.hpp
 
+/home/johnhajin21/ECE0302/assignments/projects/project3/mainXMLParser.cpp
+iostream
+-
+fstream
+-
+string
+-
+XMLParser.hpp
+/home/johnhajin21/ECE0302/assignments/projects/project3/XMLParser.hpp
+Bag.hpp
+/home/johnhajin21/ECE0302/assignments/projects/project3/Bag.hpp
+Stack.hpp
+/home/johnhajin21/ECE0302/assignments/projects/project3/Stack.hpp
+

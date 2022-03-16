@@ -14,12 +14,13 @@ template<class ItemType>
 class Stack
 {
 private:
-	Node<ItemType>* headPtr; // Pointer to first node
+	Node<ItemType>* headPtr = new Node<ItemType>(); // Pointer to first node
 	int currentSize;         // Current depth of the stack
 
 public:
 	/** Stack constructor */
 	Stack();
+	
 	/** Returns the number of items on the stack.
 	    @return The integer number of items on the stack. */
 	int size() const;
