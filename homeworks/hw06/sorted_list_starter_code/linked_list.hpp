@@ -17,7 +17,7 @@ public:
     
   // destructor
   ~LinkedList();
-
+ 
   // copy assignment
   LinkedList& operator=(const LinkedList& x);
 
@@ -32,7 +32,7 @@ public:
 
   // insert item at position in the list using 1-based indexing
   bool insert(std::size_t position, const T& item);
-/*
+
   // remove item at position in the list using 1-based indexing
   bool remove(std::size_t position);
 
@@ -44,13 +44,12 @@ public:
 
   // set the value of the item at position using 1-based indexing
   void setEntry(std::size_t position, const T& newValue);
-*/
+
 private:
 
   //TODO
-  //Creating a linked list
- Node<T>* head = new Node<T>();
- size_t sizeOfLinkedList = 0;
+  Node<T>* head = new Node<T>();
+  size_t sizeOfLinkedList = 0;
   
 };
 
