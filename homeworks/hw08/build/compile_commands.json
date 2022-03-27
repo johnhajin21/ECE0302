@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/johnhajin21/ECE0302/assignments/homeworks/hw08/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++11 -o CMakeFiles/priorityQueueTests.dir/test_priority_queue.cpp.o -c /home/johnhajin21/ECE0302/assignments/homeworks/hw08/test_priority_queue.cpp",
+  "file": "/home/johnhajin21/ECE0302/assignments/homeworks/hw08/test_priority_queue.cpp"
+},
+{
+  "directory": "/home/johnhajin21/ECE0302/assignments/homeworks/hw08/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++11 -o CMakeFiles/sortedListTests.dir/test_sorted_list.cpp.o -c /home/johnhajin21/ECE0302/assignments/homeworks/hw08/test_sorted_list.cpp",
+  "file": "/home/johnhajin21/ECE0302/assignments/homeworks/hw08/test_sorted_list.cpp"
+}
+]
