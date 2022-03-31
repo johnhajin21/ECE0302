@@ -1,0 +1,11 @@
+/home/johnhajin21/ECE0302/assignments/projects/project4/CMakeFiles/rebuild_cache.dir
+/home/johnhajin21/ECE0302/assignments/projects/project4/CMakeFiles/edit_cache.dir
+/home/johnhajin21/ECE0302/assignments/projects/project4/CMakeFiles/test.dir
+/home/johnhajin21/ECE0302/assignments/projects/project4/CMakeFiles/submission.dir
+/home/johnhajin21/ECE0302/assignments/projects/project4/CMakeFiles/pathfinder.dir
+/home/johnhajin21/ECE0302/assignments/projects/project4/CMakeFiles/student-tests.dir
+/home/johnhajin21/ECE0302/assignments/projects/project4/CMakeFiles/compare.dir
+/home/johnhajin21/ECE0302/assignments/projects/project4/lib/CMakeFiles/rebuild_cache.dir
+/home/johnhajin21/ECE0302/assignments/projects/project4/lib/CMakeFiles/edit_cache.dir
+/home/johnhajin21/ECE0302/assignments/projects/project4/lib/CMakeFiles/test.dir
+/home/johnhajin21/ECE0302/assignments/projects/project4/lib/CMakeFiles/image.dir
