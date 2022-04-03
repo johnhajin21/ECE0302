@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/johnhajin21/ECE0302/assignments/homeworks/hw09/binary_tree_starter_code/BinaryTree.h
+cassert
+-
+TreeException.h
+/home/johnhajin21/ECE0302/assignments/homeworks/hw09/binary_tree_starter_code/TreeException.h
+BinaryTree.tpp
+/home/johnhajin21/ECE0302/assignments/homeworks/hw09/binary_tree_starter_code/BinaryTree.tpp
+
+/home/johnhajin21/ECE0302/assignments/homeworks/hw09/binary_tree_starter_code/BinaryTree.tpp
+
+/home/johnhajin21/ECE0302/assignments/homeworks/hw09/binary_tree_starter_code/TreeException.h
+exception
+-
+string
+-
+
+/home/johnhajin21/ECE0302/assignments/homeworks/hw09/binary_tree_starter_code/test.cpp
+iostream
+-
+BinaryTree.h
+/home/johnhajin21/ECE0302/assignments/homeworks/hw09/binary_tree_starter_code/BinaryTree.h
+

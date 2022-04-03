@@ -337,9 +337,51 @@ TEST_CASE( "Linked List Remove Function Test", "[linkedlist]" ) {
 
 }
 
-TEST_CASE( "Deque empty Function Test", "[deque]" ) {
+TEST_CASE( "Deque Test", "[deque]" ) {
   Deque<int> Test;
 
   REQUIRE(Test.isEmpty());
+  Test.pushFront(1);
+  REQUIRE(Test.front() == 1);
+  REQUIRE(!Test.isEmpty());
+  Test.pushFront(2);
+  REQUIRE(Test.front() == 2);
+  REQUIRE(!Test.isEmpty());
+  Test.pushFront(5);
+  REQUIRE(Test.front() == 5);
+  REQUIRE(!Test.isEmpty());
+  Test.popFront();
+  REQUIRE(Test.front() == 2);
+  REQUIRE(!Test.isEmpty());
+  Test.popFront();
+  REQUIRE(Test.front() == 1);
+  REQUIRE(!Test.isEmpty());
+  Test.popFront();
+  REQUIRE(Test.isEmpty());
+
+  Test.pushBack(69);
+  REQUIRE(Test.back() == 69);
+  REQUIRE(Test.front() == 69);
+  REQUIRE(!Test.isEmpty());
+  Test.pushBack(1000);
+  REQUIRE(Test.back() == 1000);
+  REQUIRE(Test.front() == 69);
+  REQUIRE(!Test.isEmpty());
+  Test.pushBack(2000);
+  REQUIRE(Test.back() == 2000);
+  REQUIRE(Test.front() == 69);
+  REQUIRE(!Test.isEmpty());
+  Test.popBack();
+  REQUIRE(Test.back() == 1000);
+  REQUIRE(Test.front() == 69);
+  REQUIRE(!Test.isEmpty());
+  Test.popBack();
+  REQUIRE(Test.back() == 69);
+  REQUIRE(Test.front() == 69);
+  REQUIRE(!Test.isEmpty());
+
+
+
   
 }
+
