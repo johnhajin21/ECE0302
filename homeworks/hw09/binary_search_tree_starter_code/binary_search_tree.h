@@ -46,6 +46,16 @@ private:
 
     void search(KeyType key, Node<KeyType, ItemType>*& curr,
         Node<KeyType, ItemType>*& parent);
+    void inorders(ItemType *arr,Node<KeyType,ItemType> *curr,int &i){
+        
+        if(curr != 0){
+
+            inorders(arr,curr->left, i);
+            arr[i++] = curr->data;
+            inorders(arr,curr->right, i);
+        }
+
+    }
 };
 
 #include "binary_search_tree.tpp"

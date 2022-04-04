@@ -102,7 +102,50 @@ bool BinarySearchTree<KeyType, ItemType>::insert(
     const KeyType& key, const ItemType& item)
 {
     // TODO 
-    return false;
+    //Creating a new node
+    Node<KeyType, ItemType>* newNode = new Node<KeyType, ItemType>();
+    newNode -> key = key;
+    newNode -> data = item;
+    newNode -> left = 0;
+    newNode -> right = 0;
+
+    
+
+    //ALWAYS INSERT AS A LEAF
+
+    //If it is the first node inserted
+    if(isEmpty()){
+
+        root = newNode;
+        return true;
+    }
+    
+    else{
+        //Finding where to insert at
+        Node<KeyType, ItemType>* curr;
+        Node<KeyType, ItemType>* curr_parent;
+        search(key, curr, curr_parent);
+
+        //Error checking that it doesnt have the same key
+        if(key == curr->key){
+            return false;
+        }
+
+        //If lesser
+        else if(key < curr->key){
+            curr->left = newNode;
+        }
+
+        //If greater
+
+        else if(key > curr->key){
+            curr->right = newNode;
+        }
+    
+    }
+    return true;
+
+    
 }
 
 template <typename KeyType, typename ItemType>
@@ -139,17 +182,94 @@ bool BinarySearchTree<KeyType, ItemType>::remove(KeyType key)
     // TODO
 
 
-    // case one thing in the tree
+    // case one thing in the tree Deleting the root node
+    if(root->left == 0 && root->right == 0){
+        delete root;
+        root = 0; //Tree should be empty at this point
+        return true; 
+    }
+
+    //Finding where to insert at
+    Node<KeyType, ItemType>* curr;
+    Node<KeyType, ItemType>* curr_parent;
+    search(key, curr, curr_parent);
 
     // case, found deleted item at leaf
+    //Doesnt have a left or right child
+    if(curr->left == 0 && curr->right == 0){
+        if(curr_parent->left == curr){
+            curr_parent->left = 0;
+        }
+
+        else if(curr_parent->right == curr){
+            curr_parent->right = 0;
+        }
+        delete curr;//Deleting the node
+        return true;
+    }
 
     // case, item to delete has only a right child
+    else if(curr->left == 0 && curr->right != 0){
+        //If there is no parent at all aka was the root parent
+        if(curr_parent == 0){
+            root = curr->right;
+            
+        }
+        //If current node to be deleted is left child of parent
+        else if(curr_parent->left == curr){
+            curr_parent->left = curr->right;
+        }
+
+        //If current node to be deleted is right child of parent
+        else if(curr_parent->right == curr){
+            curr_parent->right = curr->right;
+        }
+
+        delete curr;//Deleting the node
+        return true;
+    }
 
     // case, item to delete has only a left child
+      else if(curr->left == 0 && curr->right != 0){
+        //If there is no parent at all aka was the root parent
+        if(curr_parent == 0){
+            root = curr->left;
+            
+        }
+        //If current node to be deleted is left child of parent
+        else if(curr_parent->left == curr){
+            curr_parent->left = curr->left;
+        }
+
+        //If current node to be deleted is right child of parent
+        else if(curr_parent->right == curr){
+            curr_parent->right = curr->left;
+        }
+
+        delete curr;//Deleting the node
+        return true;
+    }
 
     // case, item to delete has two children
+    else if(curr->left !=0 && curr->right !=0){
+        //Find the lowest key in the right subtree
+        Node<KeyType, ItemType>* lowest;
+        inorder(curr,lowest,curr_parent);
 
-    return false; // default should never get here
+        //Make temporary values to hold the data
+        ItemType dataHolder = lowest -> data;
+        KeyType keyHolder = lowest -> key;
+
+        //Recursively call this function to delete this new node called lowest
+        remove(lowest->key);
+
+        //Make the node that is going to be deleted replaced with the lowest value node
+        curr -> key = keyHolder;
+        curr -> data = dataHolder;
+
+    }
+
+    return false; // Goes here if node doesnt exist
 }
 
 template <typename KeyType, typename ItemType>
@@ -159,6 +279,12 @@ void BinarySearchTree<KeyType, ItemType>::inorder(Node<KeyType, ItemType>* curr,
     // TODO 
     // move right once
     // move left as far as possible
+
+    in = curr->right; ////Brings it to the right subtree 
+        //Then go to the left as far as possible to find the lowest value
+        while(in->left != 0){
+            in = in->left;
+        }
 }
 
 template <typename KeyType, typename ItemType>
@@ -192,9 +318,20 @@ void BinarySearchTree<KeyType, ItemType>::search(KeyType key,
 
 template<typename KeyType, typename ItemType>
 void BinarySearchTree<KeyType, ItemType>::treeSort(ItemType arr[], int size) {
-    // TODO: check for duplicate items in the input array
+    destroy();
 
+    // TODO: check for duplicate items in the input array
+    for(int i=0;i<size;i++){
+        insert(arr[i],arr[i]);
+    }
+
+    //Created a new function in private because thought it would be easier
     // TODO: use the tree to sort the array items
+    int ok = 0;
+    inorders(arr,root,ok);
 
     // TODO: overwrite input array values with sorted values
+    
+    
+    
 }
